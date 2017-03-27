@@ -1,0 +1,26 @@
+{
+  "name": "luchianenco/tdd-kata",
+  "description": "TDD Kata Exercise",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Serghei Luchianenco",
+      "email": "s@luchianenco.com"
+    }
+  ],
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0"
+  }
+}
