@@ -58,12 +58,12 @@ final class CalculatorTest extends TestCase
         $this->assertEquals($action, 3);
     }
 
-    public function testItThrowsExceptionWhenMoreNumbers()
+    public function testAddMoreThanTwoNumbers()
     {
-        $numbers = '1,2,3';
+        $numbers = '1,2,3,10,100';
 
-        $this->expectException(\InvalidArgumentException::class);
+        $action = $this->calculator->add($numbers);
 
-        $this->calculator->add($numbers);
+        $this->assertEquals($action, 116);
     }
 }

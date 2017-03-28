@@ -9,7 +9,7 @@ namespace App;
 
 class Calculator
 {
-    const MAX_NUMBERS = 2;
+    const DELIMITER = ',';
 
     /**
      * Add String Numbers
@@ -26,20 +26,22 @@ class Calculator
         $values = $this->convertStringToValues($string);
 
 
-        if ($result = $this->twoValues($values)) {
+        if ($result = $this->manyValues($values)) {
             return $result;
         }
 
         if ($result = $this->oneValue($values)) {
             return $result;
         }
-
-        throw new \InvalidArgumentException('More than 2 numbers in string not allowed');
     }
 
-    public function twoValues(array $values) : int
+    /**
+     * @param array $values
+     * @return int
+     */
+    public function manyValues(array $values) : int
     {
-        if (count($values) !== 2) {
+        if (count($values) < 2) {
             return false;
         }
 
@@ -51,6 +53,10 @@ class Calculator
         return $sum;
     }
 
+    /**
+     * @param $values
+     * @return int
+     */
     public function oneValue($values) : int
     {
         if (count($values) !== 1) {
@@ -67,6 +73,6 @@ class Calculator
      */
     private function convertStringToValues($string) : array
     {
-        return explode(',', $string);
+        return explode(self::DELIMITER, $string);
     }
 }
