@@ -9,7 +9,13 @@ namespace App;
 
 class Calculator
 {
-    const DELIMITER = ',';
+    const DELIMITER_COMMA = ',';
+    const DELIMITER_NEW_LINE = '\n';
+
+    private $delimiters = [
+        self::DELIMITER_COMMA,
+        self::DELIMITER_NEW_LINE
+    ];
 
     /**
      * Add String Numbers
@@ -73,6 +79,8 @@ class Calculator
      */
     private function convertStringToValues($string) : array
     {
-        return explode(self::DELIMITER, $string);
+        $delimiters = implode('|', $this->delimiters);
+
+        return preg_split('/(' . $delimiters . ')/', $string);
     }
 }

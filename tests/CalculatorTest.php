@@ -66,4 +66,13 @@ final class CalculatorTest extends TestCase
 
         $this->assertEquals($action, 116);
     }
+
+    public function testAddMethodAcceptsNewLineDelimiter()
+    {
+        $numbers = "1\n2,32";
+
+        $action = $this->calculator->add($numbers);
+
+        $this->assertEquals($action, 35);
+    }
 }
